@@ -189,6 +189,12 @@ function getAllFS() {
                 nativeURL: 'ms-appdata:///local',
                 winpath: nativePathToCordova(Windows.Storage.ApplicationData.current.localFolder.path)  
             })),
+            'package':
+            Object.freeze(new WinFS('package', { 
+                name: 'package', 
+                nativeURL: 'ms-appx:///',
+                winpath: nativePathToCordova(Windows.ApplicationModel.Package.current.installedLocation.path)  
+            })),
             'temporary':
             Object.freeze(new WinFS('temporary', { 
                 name: 'temporary', 
@@ -244,7 +250,7 @@ function pathFromURL(url) {
         }
     }
     
-    ['file://','ms-appdata:///','cdvfile://localhost/'].every(function(p) {
+    ['file://','ms-appdata:///','cdvfile://localhost/','ms-appx://'].every(function(p) {
         if (path.indexOf(p)!==0)
             return true;
         var thirdSlash = path.indexOf("/", p.length);
