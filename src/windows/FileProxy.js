@@ -192,7 +192,7 @@ function getAllFS() {
             'package':
             Object.freeze(new WinFS('package', { 
                 name: 'package', 
-                nativeURL: 'ms-appx:///',
+                nativeURL: 'ms-appx://',
                 winpath: nativePathToCordova(Windows.ApplicationModel.Package.current.installedLocation.path)  
             })),
             'temporary':
